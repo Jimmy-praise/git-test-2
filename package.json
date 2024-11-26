@@ -17,6 +17,7 @@
   "license": "ISC",
   "description": "This is an expressjs tutorial that talks about cookies, params and validation",
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "express": "^4.21.1"
   }
 }

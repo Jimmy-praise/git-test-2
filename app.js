@@ -1,5 +1,5 @@
 import express from 'express';
-// import cookieParser from 'cookie-parser';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 
@@ -32,17 +32,23 @@ app.get('/user/:id', (req, res) => {
 });
 
 // Cookies
-// app.use(cookieParser());
-// app.get('/set-cookie', (req, res) => {
-//     res.cookie('theme', 'dark', {maxAge: 15 * 60, httpOnly: true});
-//     res.cookie('color', 'white', {maxAge: 15 * 60, httpOnly: true});
-//     res.send('2 cookies has been set');
-// });
+app.use(cookieParser());
+app.get('/set-cookie', (req, res) => {
+    res.cookie('theme', 'dark', {maxAge: (10 * 60 * 1000), httpOnly: true}); // 10mins * 60secs * 1000ms
+    res.cookie('color', 'white', {maxAge: 9000000, httpOnly: true});
+    res.send('2 cookies has been set');
+});
 
-// app.get('/get-cookie', (req, res) => {
-//     const allCookies = req.cookies;
-//     res.send(`${allCookies}`);
-// })
+app.get('/get-cookie', (req, res) => {
+    const allCookies = req.cookies;
+    res.send(`Theme = ${req.cookies.theme} \n Color = ${req.cookies.color}`);
+});
+
+app.get('/clear-cookie', (req, res) => {
+    res.clearCookie('theme');
+    res.clearCookie('color');
+    res.send('2 cookies cleared')
+})
 
 app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
