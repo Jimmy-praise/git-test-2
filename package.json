@@ -1,0 +1,22 @@
+{
+  "name": "express-cookies-params-validation",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "expressjs",
+    "cookies",
+    "params",
+    "validation"
+  ],
+  "author": "Jimmy",
+  "license": "ISC",
+  "description": "This is an expressjs tutorial that talks about cookies, params and validation",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
